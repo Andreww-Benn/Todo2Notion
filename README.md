@@ -24,7 +24,8 @@ Before using **Todo2Notion**, make sure you have the following prerequisites:
 2. Navigate to the project directory using the terminal.
 3. Install the project's dependencies by running:
 ```
-npm install
+npm install @doist/todoist-api-typescript
+npm install @notionhq/client
 ```
 
 ## Usage

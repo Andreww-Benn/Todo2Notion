@@ -33,9 +33,9 @@ To use **Todo2Notion**, follow these steps:
 
 1. Set your Todoist API key, Notion API key, and Notion database ID as environment variables:
 ```
-export NOTION_KEY=your-notion-api-key
-export NOTION_DATABASE_ID=your-notion-database-id
-export TODOIST_API_KEY=your-todoist-api-key
+set NOTION_KEY=your-notion-api-key
+set NOTION_DATABASE_ID=your-notion-database-id
+set TODOIST_API_KEY=your-todoist-api-key
 ```
 2. Run the script:
 ```

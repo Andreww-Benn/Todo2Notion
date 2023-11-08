@@ -11,17 +11,17 @@ const TODOIST_API_KEY = process.env.TODOIST_API_KEY;   // Todoist API key
 const notion = new Client({ auth: NOTION_KEY });
 const doist = new TodoistApi(TODOIST_API_KEY);
 
-// Function to fetch course data from Todoist and return it as an array of objects
-async function fetchCourses() {
+// Function to fetch project data from Todoist and return it as an array of objects
+async function fetchProjects() {
   try {
     const projects = await doist.getProjects(); // Fetch projects from Todoist
     // Map the projects to a simplified format
-    return projects.map((course) => ({
-      name: course.name,
-      id: course.id,
+    return projects.map((project) => ({
+      name: project.name,
+      id: project.id,
     }));
   } catch (error) {
-    console.error("Error fetching courses:", error);
+    console.error("Error fetching projects:", error);
     return [];
   }
 }
@@ -59,8 +59,8 @@ async function fetchTasks(courseArray) {
 // Function to create Notion pages based on the retrieved task data
 async function createNotionPage() {
   try {
-    const courseArray = await fetchCourses(); // Fetch and process course data
-    const taskArray = await fetchTasks(courseArray); // Fetch and process task data
+    const projectArray = await fetchProjects(); // Fetch and process course data
+    const taskArray = await fetchTasks(projectArray); // Fetch and process task data
 
     // Iterate through the task data and create Notion pages for each task
     for (let task of taskArray) {

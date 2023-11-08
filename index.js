@@ -27,14 +27,14 @@ async function fetchProjects() {
 }
 
 // Function to fetch task data from Todoist and return it as an array of objects
-async function fetchTasks(courseArray) {
+async function fetchTasks(projectArray) {
   try {
     const tasks = await doist.getTasks(); // Fetch tasks from Todoist
     const taskArray = [];
 
     // Process each task and associate it with its parent course
     for (let task of tasks) {
-      const parent = courseArray.find((course) => course.id === task.projectId); //finds project name for the task
+      const parent = projectArray.find((course) => course.id === task.projectId); //finds project name for the task
       const processedDate = task.due ? task.due.date : ""; //returns the due date if there is one or a blank string if not
       const processedLabel =
         task.labels[0] === undefined ? "Misc" : task.labels[0]; //returns the tasks label if it has one or misc if not

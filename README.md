@@ -34,6 +34,7 @@ Before using **Todo2Notion**, make sure you have the following prerequisites:
 ```
 npm install todoist
 npm install @notionhq/client
+npm install node-fetch
 ```
 
 ## Usage
@@ -58,7 +59,7 @@ The script will fetch tasks from Todoist and create corresponding pages in a Not
 
 ## Configuration
 
-The project uses environment variables for configuration. Here are the variables you need to set:
+The project uses environment variables for configuration as well as a config.json file. Here are the variables you need to set:
 
 - **NOTION_KEY**: Your Notion API key.
 - **NOTION_DATABASE_ID**: The ID of the Notion database where you want to create pages.
@@ -66,6 +67,13 @@ The project uses environment variables for configuration. Here are the variables
 
 You can set these environment variables in a .env file or through your system's environment variable settings as shown above.
 
+The config.json file will store the sync token needed by the todoist api formatted like:
+
+```
+{
+  "token":""
+}
+```
 ## Contributing
 
 Contributions to this project are welcome. If you'd like to contribute, please follow these guidelines:
